@@ -5,7 +5,7 @@ class Solution {
         
         while uglNumbers.count < n {
             let stepResults = indexes.enumerate().map({ uglNumbers[$1] * primes[$0] })
-            let min = stepResults.sort(<).first!
+            let min = stepResults.minElement()!
             
             for (index, number) in stepResults.enumerate() {
                 if number == min {
