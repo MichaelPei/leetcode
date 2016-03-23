@@ -8,6 +8,6 @@ class Solution {
             return num
         }
         
-        return num - (num / 9) * 9
+        return num - ((num - 1) / 9) * 9
     }
 }
