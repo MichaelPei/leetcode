@@ -4,6 +4,10 @@ class Solution {
             return true
         }
         
+        if num == 0 {
+            return false
+        }
+        
         let root = [2, 3, 5]
         var newNum = num
         for rootNumber in root {
