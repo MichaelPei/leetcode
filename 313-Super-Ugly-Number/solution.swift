@@ -1,21 +1,29 @@
-class Solution {
-    func nthSuperUglyNumber(n: Int, _ primes: [Int]) -> Int {
-        var uglNumbers = [1]
-        var indexes = [Int](count: primes.count, repeatedValue: 0)
-        
-        while uglNumbers.count < n {
-            let stepResults = indexes.enumerate().map({ uglNumbers[$1] * primes[$0] })
-            let min = stepResults.minElement()!
-            
-            for (index, number) in stepResults.enumerate() {
-                if number == min {
-                    indexes[index] += 1
+public class Solution {
+    public int nthSuperUglyNumber(int n, int[] primes) {
+        int size = primes.length;
+        int q[] = new int[n];
+        int idxes[] = new int[size];
+        int vals[] = new int[size];
+        q[0] = 1;
+        for (int i = 1; i < n; i++) {
+            for (int j = 0; j < size; j++) {
+                vals[j] = q[idxes[j]] * primes[j];
+            }
+            q[i] = findMin(vals);
+            for (int j = 0; j < size; j++) {
+                if (vals[j] == q[i]) {
+                    idxes[j] += 1;
                 }
             }
-            
-            uglNumbers.append(min)
         }
-        
-        return uglNumbers.last!
+        return q[n - 1];
+    }
+
+    public int findMin(int[] nums) {
+        int min = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            min = Math.min(min, nums[i]);
+        }
+        return min;
     }
 }
