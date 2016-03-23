@@ -1,6 +1,6 @@
 class Solution {
     func isUgly(num: Int) -> Bool {
-        if num == 1 || num == 0 {
+        if num == 1 {
             return true
         }
         
@@ -10,6 +10,10 @@ class Solution {
             while newNum % rootNumber == 0 {
                 newNum /= rootNumber
             }
+            
+            if newNum < root.last {
+                break
+            }   
         }
         
         return newNum == 1
