@@ -15,9 +15,9 @@ class Solution {
                 newNum /= rootNumber
             }
             
-            if newNum < root.last {
+            if newNum < root.first {
                 break
-            }   
+            }
         }
         
         return newNum == 1
