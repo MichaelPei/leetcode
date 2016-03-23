@@ -11,7 +11,7 @@ class Solution {
             return newNumber == 1
         }
         else {
-            return isHappy(number)
+            return isHappy(newNumber)
         }
 
     }
