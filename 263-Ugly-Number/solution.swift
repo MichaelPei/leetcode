@@ -1,7 +1,7 @@
 class Solution {
     func isUgly(num: Int) -> Bool {
-        if num == 1 {
-        return true
+        if num == 1 || num == 0 {
+            return true
         }
         
         let root = [2, 3, 5]
