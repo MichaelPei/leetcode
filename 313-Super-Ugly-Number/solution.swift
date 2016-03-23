@@ -1,7 +1,7 @@
 class Solution {
     func nthSuperUglyNumber(n: Int, _ primes: [Int]) -> Int {
         var uglNumbers = [1]
-        var indexes = [Int](count: 3, repeatedValue: 0)
+        var indexes = [Int](count: primes.count, repeatedValue: 0)
         
         while uglNumbers.count < n {
             let stepResults = indexes.enumerate().map({ uglNumbers[$1] * primes[$0] })
