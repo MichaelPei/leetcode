@@ -4,8 +4,10 @@ class Solution {
         var indexes = [Int](count: primes.count, repeatedValue: 0)
         
         while uglNumbers.count < n {
+            NSLog("Indexes: \(indexes)")
             let stepResults = indexes.enumerate().map({ uglNumbers[$1] * primes[$0] })
-            let min = stepResults.sort(>).first!
+            NSLog("Step result: \(stepResults)")
+            let min = stepResults.sort(<).first!
             
             for (index, number) in stepResults.enumerate() {
                 if number == min {
@@ -14,6 +16,7 @@ class Solution {
             }
             
             uglNumbers.append(min)
+            NSLog("Result: \(uglNumbers)")
         }
         
         return uglNumbers.last!
