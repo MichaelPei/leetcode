@@ -4,6 +4,10 @@ class Solution {
             return 0
         }
         
+        if num <= 9 {
+            return num
+        }
+        
         return num % 9
     }
 }
